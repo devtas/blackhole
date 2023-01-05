@@ -1,0 +1,51 @@
+
+.universe {
+  display: flex;
+  justify-content: center;
+  place-items: center;
+  height: 100vh;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  transition: all 1s cubic-bezier(0.67, 0, 0.43, 1);
+  z-index: 10;
+}
+
+.blackhole {
+    position: relative;
+    z-index: 5;
+
+    &__brightness {
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+
+        &::before,
+        &::after {
+            border-radius: 50%;
+            content: ' ';
+            position: absolute;
+            transform: translateZ(0);
+        }
+
+        &::before {
+          background: var(--thirth-glow);
+          filter: blur(70px);
+          left: -25%;
+          top: -25%;
+          height: 150%;
+          width: 150%;
+        }
+    }
+    
+    &__singularity {
+        background-color: black;
+        border-radius: 50%;
+        height: 50vh;
+        filter: blur(10px);
+        width: 50vh;
+    }
+}
