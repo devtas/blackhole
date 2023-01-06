@@ -23,12 +23,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: mskelton/setup-yarn@v1
+      - name: Use Node.js
+        uses: actions/setup-node@v3
         with:
           node-version: '16.x'
-      - run:
-          yarn
-          yarn build
+      - name: Install dependencies
+        run: yarn --frozen-lockfile && yarn build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
