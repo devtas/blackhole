@@ -35,11 +35,13 @@ jobs:
           node-version: '16.x'
       - name: Install dependencies
         run: yarn --frozen-lockfile && yarn build
+      - name: Build Vite
+        run: yarn build
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./dist
-          destination: ./_site
+          destination: ./
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
 
